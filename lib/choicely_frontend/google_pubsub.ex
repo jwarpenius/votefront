@@ -46,7 +46,6 @@ defmodule ChoicelyFrontend.GooglePubSub do
     {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
     conn = GoogleApi.PubSub.V1.Connection.new(token.token)
 
-
     # Build the PublishRequest struct
     request = %GoogleApi.PubSub.V1.Model.PublishRequest{
       messages: [
@@ -72,8 +71,7 @@ defmodule ChoicelyFrontend.GooglePubSub do
 
   defp stringify_and_encode(message) do
     message
-      |> Poison.encode
-      |> elem(1)
+      |> Poison.encode!
       |> Base.encode64
   end
 
