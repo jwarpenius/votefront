@@ -1,6 +1,6 @@
 # From https://github.com/GoogleCloudPlatform/elixir-samples/tree/master/pubsub
-
 defmodule ChoicelyFrontend.GooglePubSub do
+
   @moduledoc """
   Publishing votes data to Google PubSub.
   """
@@ -71,7 +71,7 @@ defmodule ChoicelyFrontend.GooglePubSub do
 
   defp stringify_and_encode(message) do
     message
-      |> Poison.encode!
+      |> Jason.encode!
       |> Base.encode64
   end
 

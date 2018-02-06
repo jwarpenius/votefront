@@ -39,7 +39,8 @@ defmodule ChoicelyFrontend.Mixfile do
       {:google_api_pub_sub, "~> 0.0.1"},
       {:goth, "~> 0.7.0"},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:jason, "~> 1.0"}
     ]
   end
 end
