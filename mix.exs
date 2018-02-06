@@ -36,6 +36,8 @@ defmodule ChoicelyFrontend.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:ex_json_schema, "~> 0.5.4"},
+      {:google_api_pub_sub, "~> 0.0.1"},
+      {:goth, "~> 0.7.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"}
     ]
