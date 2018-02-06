@@ -46,11 +46,12 @@ defmodule ChoicelyFrontend.GooglePubSub do
     {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
     conn = GoogleApi.PubSub.V1.Connection.new(token.token)
 
+
     # Build the PublishRequest struct
     request = %GoogleApi.PubSub.V1.Model.PublishRequest{
       messages: [
         %GoogleApi.PubSub.V1.Model.PubsubMessage{
-          data: Base.encode64(message)
+          data: stringify_and_encode(message)
         }
       ]
     }
@@ -68,4 +69,12 @@ defmodule ChoicelyFrontend.GooglePubSub do
     |> (&IO.ANSI.format([:green, :bright, &1])).()
     |> IO.puts
   end
+
+  defp stringify_and_encode(message) do
+    message
+      |> Poison.encode
+      |> elem(1)
+      |> Base.encode64
+  end
+
 end
