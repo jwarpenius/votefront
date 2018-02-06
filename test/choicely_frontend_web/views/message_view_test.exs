@@ -5,8 +5,8 @@ defmodule ChoicelyFrontendWeb.MessageViewTest do
   import Phoenix.View
 
   test "renders index.json" do
-    params = %{test: true}
-    assert render(ChoicelyFrontendWeb.MessageView, "index.json", %{params: params}) ==
-           params
+    data = %{test: true}
+    assert render(ChoicelyFrontendWeb.MessageView, "index.json", %{data: data}) ==
+           data
   end
 end
