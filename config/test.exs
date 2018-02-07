@@ -8,3 +8,6 @@ config :choicely_frontend, ChoicelyFrontendWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :goth,
+  json: "./config/gcloud-config.secret.json" |> File.read!
