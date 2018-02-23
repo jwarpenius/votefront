@@ -13,10 +13,12 @@ defmodule ChoicelyFrontend.GooglePubSub do
       iex> ChoicelyFrontend.GooglePubSub.get_topic("YOUR_PROJECT_ID", "test-topic")
 
   """
+
+  @gcloud_scope "https://www.googleapis.com/auth/cloud-platform"
+
   def get_topic(project_id, topic_name) do
     # Authenticate
-    {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
-    conn = GoogleApi.PubSub.V1.Connection.new(token.token)
+    conn = authenticate()
 
     # Make the API request.
     response = GoogleApi.PubSub.V1.Api.Projects.pubsub_projects_topics_get(
@@ -43,8 +45,7 @@ defmodule ChoicelyFrontend.GooglePubSub do
   """
   def publish(project_id, topic_name, message) do
     # Authenticate
-    {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
-    conn = GoogleApi.PubSub.V1.Connection.new(token.token)
+    conn = authenticate()
 
     # Build the PublishRequest struct
     request = %GoogleApi.PubSub.V1.Model.PublishRequest{
@@ -73,6 +74,11 @@ defmodule ChoicelyFrontend.GooglePubSub do
     message
       |> Jason.encode!
       |> Base.encode64
+  end
+
+  defp authenticate() do
+    {:ok, token} = Goth.Token.for_scope(@gcloud_scope)
+    GoogleApi.PubSub.V1.Connection.new(token.token)
   end
 
 end
