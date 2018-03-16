@@ -47,6 +47,8 @@ defmodule ChoicelyFrontend.GooglePubSub do
     # Authenticate
     conn = authenticate()
 
+    message = Map.put(message, "timestamp", DateTime.utc_now |> DateTime.to_unix)
+
     # Build the PublishRequest struct
     request = %GoogleApi.PubSub.V1.Model.PublishRequest{
       messages: [
