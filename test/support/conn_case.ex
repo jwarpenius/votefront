@@ -1,4 +1,4 @@
-defmodule ChoicelyFrontendWeb.ConnCase do
+defmodule ChoicelyVotefront.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,10 +19,10 @@ defmodule ChoicelyFrontendWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      import ChoicelyFrontendWeb.Router.Helpers
+      import ChoicelyVotefront.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint ChoicelyFrontendWeb.Endpoint
+      @endpoint ChoicelyVotefront.Endpoint
     end
   end
 

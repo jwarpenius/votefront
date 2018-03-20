@@ -1,5 +1,5 @@
-defmodule ChoicelyFrontendWeb.ErrorView do
-  use ChoicelyFrontendWeb, :view
+defmodule ChoicelyVotefront.ErrorView do
+  use ChoicelyVotefront, :view
 
   def render("404.json", _assigns) do
     %{errors: %{detail: "Page not found"}}

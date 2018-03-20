@@ -1,0 +1,33 @@
+# Prerequisites
+
+# You need to have access to the project before using this deployment script. Please ask from Jari if you need access
+# gcloud sdk needs to be installed before to using this script: https://cloud.google.com/sdk/
+# gcloud configuration needs to be initialized before running this script.
+
+# Run 'gcloud init'
+# Choose [2], Create a new configuration
+# Give the configuration a name: loventedtest
+# Log in using the credentials that have access to the project
+# Choose the relevant cloud project: loventedtest
+# Choose 'Yes' when asked if you want to configure Google Compute Engine
+# Choose europe-west1-d
+
+gcloud config configurations activate loventedtest
+gcloud container clusters get-credentials loventedtest
+
+echo
+echo Testing gcloud configuration activated
+
+# Set image name and tag with timestamp-user information
+image=gcr.io/loventedtest/votefront:$(date +%Y%m%d%H%M%S)-$(whoami)
+
+./builder
+
+docker build -t $image  .
+gcloud docker -- push $image
+sleep 3
+kubectl set image deployment/votefront votefront=$image
+kubectl get deployments
+
+echo
+echo Deployment done!

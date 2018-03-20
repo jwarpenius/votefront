@@ -3,7 +3,7 @@ defmodule ChoicelyFrontend.Mixfile do
 
   def project do
     [
-      app: :choicely_frontend,
+      app: :choicely_votefront,
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),

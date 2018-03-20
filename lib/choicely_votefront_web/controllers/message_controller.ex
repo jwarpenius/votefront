@@ -1,5 +1,5 @@
-defmodule ChoicelyFrontendWeb.MessageController do
-  use ChoicelyFrontendWeb, :controller
+defmodule ChoicelyVotefront.MessageController do
+  use ChoicelyVotefront, :controller
   alias ChoicelyFrontend.Publisher
 
   def post(conn, _) do

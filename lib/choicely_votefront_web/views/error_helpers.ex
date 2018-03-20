@@ -1,4 +1,4 @@
-defmodule ChoicelyFrontendWeb.ErrorHelpers do
+defmodule ChoicelyVotefront.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule ChoicelyFrontendWeb.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(ChoicelyFrontendWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(ChoicelyVotefront.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(ChoicelyFrontendWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(ChoicelyVotefront.Gettext, "errors", msg, opts)
     end
   end
 end

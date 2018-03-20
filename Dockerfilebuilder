@@ -1,0 +1,16 @@
+FROM streen/alpine-elixir-dev
+
+# install the Phoenix Mix archive
+RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+
+ARG MIX_ENV
+
+WORKDIR /app
+
+COPY . .
+
+RUN mix deps.get
+
+RUN mix deps.compile
+
+RUN MIX_ENV=$MIX_ENV mix do phx.digest, release --env=prod --upgrade

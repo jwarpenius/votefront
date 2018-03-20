@@ -1,11 +1,11 @@
-defmodule ChoicelyFrontendWeb.Router do
-  use ChoicelyFrontendWeb, :router
+defmodule ChoicelyVotefront.Router do
+  use ChoicelyVotefront, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", ChoicelyFrontendWeb do
+  scope "/", ChoicelyVotefront do
     pipe_through :api
 
     post "/", MessageController, :post

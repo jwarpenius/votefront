@@ -1,12 +1,12 @@
-defmodule ChoicelyFrontendWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :choicely_frontend
+defmodule ChoicelyVotefront.Endpoint do
+  use Phoenix.Endpoint, otp_app: :choicely_votefront
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :choicely_frontend, gzip: false,
+    at: "/", from: :choicely_votefront, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -33,10 +33,10 @@ defmodule ChoicelyFrontendWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_choicely_frontend_key",
+    key: "_choicely_votefront_key",
     signing_salt: "mDH/GjaT"
 
-  plug ChoicelyFrontendWeb.Router
+  plug ChoicelyVotefront.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :choicely_frontend, ChoicelyFrontendWeb.Endpoint,
+config :choicely_votefront, ChoicelyVotefront.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -30,13 +30,13 @@ config :choicely_frontend, ChoicelyFrontendWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :choicely_frontend, ChoicelyFrontendWeb.Endpoint,
+config :choicely_votefront, ChoicelyVotefront.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/choicely_frontend_web/views/.*(ex)$},
-      ~r{lib/choicely_frontend_web/templates/.*(eex)$}
+      ~r{lib/choicely_votefront_web/views/.*(ex)$},
+      ~r{lib/choicely_votefront_web/templates/.*(eex)$}
     ]
   ]
 
