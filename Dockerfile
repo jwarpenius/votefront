@@ -1,4 +1,4 @@
-FROM bitwalker/alpine-erlang:19.3
+FROM bitwalker/alpine-erlang:20.3.1
 MAINTAINER jari@choicely.com
 
 # Create app directory
