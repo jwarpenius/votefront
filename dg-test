@@ -13,7 +13,7 @@
 # Choose europe-west1-d
 
 gcloud config configurations activate loventedtest
-gcloud container clusters get-credentials loventedtest
+gcloud container clusters get-credentials votefront
 
 echo
 echo Testing gcloud configuration activated

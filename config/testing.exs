@@ -24,4 +24,7 @@ config :choicely_votefront, ChoicelyVotefront.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :goth, json: {:system, "GCP_CREDENTIALS"}
+# config :goth, json: {:system, "GCP_CREDENTIALS"}
+
+config :goth,
+  json: "./config/gcloud-config-test.secret.json" |> File.read!
