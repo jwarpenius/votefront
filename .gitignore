@@ -9,3 +9,8 @@
 erl_crash.dump
 
 /config/*.secret.json
+/priv/static/css
+/priv/static/js
+/priv/static/images
+/priv/static
+/rel

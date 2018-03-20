@@ -7,7 +7,7 @@ defmodule ChoicelyFrontend.Publisher do
   defp publish_item(item) do
     case Schema.validate(item) do
       :ok ->
-        PubSub.publish("choicely-votefront", "vote", item)
+        PubSub.publish("loventedtest", "votes", item)
         :published
       {:error, errors} -> %{"errors" => encode(errors), "item" => item}
     end
