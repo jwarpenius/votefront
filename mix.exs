@@ -32,16 +32,17 @@ defmodule ChoicelyFrontend.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.0"},
-      {:phoenix_html, "~> 2.10"},
+      {:phoenix, "~> 1.3.2"},
+      {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:distillery, "~> 1.5.2", runtime: false},
-      {:ex_json_schema, "~> 0.5.4"},
+      {:ex_json_schema, "~> 0.5.6"},
       {:google_api_pub_sub, "~> 0.0.1"},
-      {:goth, "~> 0.7.0"},
-      {:gettext, "~> 0.11"},
+      {:goth, "~> 0.8.0"},
+      {:gettext, "~> 0.15"},
       {:cowboy, "~> 1.0"},
-      {:jason, "~> 1.0"}
+      {:jason, "~> 1.0"},
+      {:hackney, "1.6.1", override: true} # don't upgrade, see https://gitlab.com/choicely/data-service/issues/4
     ]
   end
 end
