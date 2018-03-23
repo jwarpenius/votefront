@@ -9,7 +9,7 @@ use Mix.Config
 config :choicely_votefront, ChoicelyVotefront.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "fjMja9HZ+kzBHE3Qa4RbiogTvOBd0RceQgvfxYr6R2ERmgaS1ip66HtdVuQP7erw",
-  render_errors: [view: ChoicelyVotefront.ErrorView, accepts: ~w(html json)]
+  render_errors: [view: ChoicelyVotefront.ErrorView, accepts: ~w(json)]
 
 # Configures Elixir's Logger
 config :logger, :console,
