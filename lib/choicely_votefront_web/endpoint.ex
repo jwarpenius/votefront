@@ -21,7 +21,7 @@ defmodule ChoicelyVotefront.Endpoint do
   plug Plug.Logger
 
   plug Plug.Parsers,
-    parsers: [:urlencoded, :multipart, :json],
+    parsers: [:multipart, :json],
     pass: ["application/json"],
     json_decoder: Jason
 
