@@ -22,7 +22,7 @@ defmodule ChoicelyVotefront.Endpoint do
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
-    pass: ["*/*"],
+    pass: ["application/json"],
     json_decoder: Jason
 
   plug Plug.MethodOverride
