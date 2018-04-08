@@ -53,7 +53,7 @@ defmodule ChoicelyFrontend.GooglePubSub do
     request = %GoogleApi.PubSub.V1.Model.PublishRequest{
       messages: [
         %GoogleApi.PubSub.V1.Model.PubsubMessage{
-          data: stringify_and_encode(message)
+          attributes: stringify_values(message)
         }
       ]
     }
@@ -72,10 +72,10 @@ defmodule ChoicelyFrontend.GooglePubSub do
     |> IO.puts
   end
 
-  defp stringify_and_encode(message) do
+  defp stringify_values(%{} = message) do
     message
-      |> Jason.encode!
-      |> Base.encode64
+    |> Map.to_list
+    |> Enum.reduce(%{}, fn({key, val}, acc) -> Map.put(acc, key, Jason.encode!(val)) end)
   end
 
   defp authenticate() do
