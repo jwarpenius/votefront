@@ -28,6 +28,12 @@ defmodule ChoicelyFrontend.RequestSchema do
         "participant_id" => %{
           "type" => "string"
         },
+        "loosing_participant_ids" => %{
+          "type" => "array",
+          "items" => %{
+            "type" => "string"
+          }
+        },
         "choices" => %{
           "type" => "array",
           "items" => %{
