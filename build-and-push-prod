@@ -12,7 +12,7 @@
 
 gcloud config configurations activate loventedapp
 gcloud beta container clusters get-credentials votefront-europe-west1 --zone=europe-west1
-gcloud betacontainer clusters get-credentials votefront-us-central1 --zone=us-central1
+gcloud beta container clusters get-credentials votefront-us-central1 --zone=us-central1
 
 echo
 echo PRODUCTION gcloud configuration activated
