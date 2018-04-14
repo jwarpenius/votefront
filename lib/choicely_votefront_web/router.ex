@@ -16,6 +16,12 @@ defmodule ChoicelyVotefront.Router do
     pipe_through :api
 
     post "/", MessageController, :post
+
+  end
+
+  scope "/", ChoicelyVotefront do
+    pipe_through :browser
+
     get "/", MessageController, :health
 
   end

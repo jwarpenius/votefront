@@ -11,7 +11,9 @@ defmodule ChoicelyVotefront.MessageController do
   end
 
   def health(conn, _) do
-    conn |> send_resp(200, "OK")
+    conn 
+      |> put_resp_content_type("text/plain")
+      |> send_resp(200, "Ok")
   end
 
   defp status(data) do
