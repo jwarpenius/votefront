@@ -6,28 +6,24 @@
 
 # Run 'gcloud init'
 # Choose [2], Create a new configuration
-# Give the configuration a name: loventedtest
+# Give the configuration a name: loventedapp
 # Log in using the credentials that have access to the project
-# Choose the relevant cloud project: loventedtest
-# Choose 'Yes' when asked if you want to configure Google Compute Engine
-# Choose europe-west1-d
+# Choose the relevant cloud project: loventedapp
 
-gcloud config configurations activate loventedtest
-gcloud container clusters get-credentials votefront
+gcloud config configurations activate loventedapp
+gcloud container clusters get-credentials votefront-europe-west1
+gcloud container clusters get-credentials votefront-us-central1 	
 
 echo
-echo Testing gcloud configuration activated
+echo PRODUCTION gcloud configuration activated
 
 # Set image name and tag with timestamp-user information
-image=gcr.io/loventedtest/votefront:$(date +%Y%m%d%H%M%S)-$(whoami)
+image=gcr.io/loventedapp/votefront:$(date +%Y%m%d%H%M%S)-$(whoami)
 
 ./builder
 
 docker build -t $image .
 gcloud docker -- push $image
-sleep 3
-kubectl set image deployment/votefront votefront=$image
-kubectl get deployments
 
 echo
-echo Deployment done!
+echo Build done, you can deploy to clusters $image
