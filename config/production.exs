@@ -15,7 +15,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :choicely_votefront, ChoicelyVotefront.Endpoint,
   load_from_system_env: true,
-  url: [host: "example.com", port: 80],
+  url: [host: "votefront.choicely.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
   root: ".",
@@ -24,4 +24,7 @@ config :choicely_votefront, ChoicelyVotefront.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :goth, json: {:system, "GCP_CREDENTIALS"}
+# config :goth, json: {:system, "GCP_CREDENTIALS"}
+
+config :goth,
+  json: "./config/gcloud-config.secret.json" |> File.read!
