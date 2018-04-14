@@ -11,7 +11,9 @@ config :choicely_votefront, ChoicelyVotefront.Endpoint,
   debug_errors: false,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [],
+  project: "loventedtest",
+  topic: "votes"
 
 # ## SSL Support
 #
