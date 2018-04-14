@@ -9,13 +9,18 @@ defmodule ChoicelyFrontend.Publisher do
     do: publish_item(params)
 
   defp publish_item(item) do
+
+    project = Application.get_env(:choicely_votefront, ChoicelyVotefront.Endpoint)[:project]
+    topic = Application.get_env(:choicely_votefront, ChoicelyVotefront.Endpoint)[:topic]
+    
     case Schema.validate(item) do
       :ok ->
-        PubSub.publish("loventedtest", "votes", item)
+        PubSub.publish(project, topic, item)
         :published
       {:error, errors} -> %{"errors" => encode(errors), "item" => item}
     end
   end
 
   defp encode(errors), do: Enum.map(errors, fn {key, val} -> %{key => val} end)
+
 end
