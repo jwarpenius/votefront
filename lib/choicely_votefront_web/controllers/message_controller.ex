@@ -10,6 +10,10 @@ defmodule ChoicelyVotefront.MessageController do
     |> render("index.json", data: data)
   end
 
+  def health(conn, _) do
+    conn |> send_resp(200, "OK")
+  end
+
   defp status(data) do
     case data do
       :published -> :ok
