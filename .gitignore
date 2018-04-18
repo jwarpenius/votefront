@@ -14,4 +14,4 @@ erl_crash.dump
 /priv/static/images
 /priv/static
 /rel
-/rel_alpine
+rel_alpine/choicely_votefront.tar.gz
